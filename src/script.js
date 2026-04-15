@@ -254,6 +254,10 @@ window.addEventListener("load", () => {
   const heroBadgeRing = document.querySelector(".hero-badge-ring");
   if (heroBadgeRing) gsap.to(heroBadgeRing, { rotation: 360, duration: 20, ease: "none", repeat: -1 });
 
+  document.querySelectorAll(".badge-ring").forEach(ring => {
+    gsap.to(ring, { rotation: 360, duration: 20, ease: "none", repeat: -1 });
+  });
+
   const heroBadge = document.querySelector(".hero-badge");
   if (heroBadge) {
     heroBadge.addEventListener("click", () => {
@@ -354,31 +358,30 @@ window.addEventListener("load", () => {
       const sy = lenis.scroll;
 
       navEntries.forEach(({ sectionId, linkIdx }, i) => {
-        const section  = document.getElementById(sectionId);
-        const nextId   = navEntries[i + 1]?.sectionId ?? "footer";
-        const nextSec  = document.getElementById(nextId);
+        const section = document.getElementById(sectionId);
+        const nextId  = navEntries[i + 1]?.sectionId ?? null;
+        const nextSec = nextId ? document.getElementById(nextId) : null;
         if (!section) return;
 
         const top     = section.offsetTop;
         const nextTop = nextSec ? nextSec.offsetTop : document.body.scrollHeight;
         const range   = nextTop - top;
 
-        const active  = sy >= top && sy < nextTop;
-        const pct     = active ? Math.min(100, Math.max(0, (sy - top) / range * 100)) : 0;
+        let pct;
+        if (sy < top) {
+          pct = 0;                                               // not yet reached
+        } else if (sy >= nextTop) {
+          pct = 100;                                             // already passed
+        } else {
+          pct = Math.min(100, Math.max(0, (sy - top) / range * 100)); // in progress
+        }
 
         if (fills[linkIdx]) fills[linkIdx].style.width = pct + "%";
-        allNavLinks[linkIdx]?.classList.toggle("sn-active", active);
+        allNavLinks[linkIdx]?.classList.toggle("sn-active", sy >= top && sy < nextTop);
       });
-
-      // back at the very top → restore home bar to full
-      if (sy < 5) {
-        if (fills[0]) fills[0].style.width = "100%";
-        allNavLinks[0]?.classList.add("sn-active");
-      }
     }
 
-    // home section is active on load — set full immediately
-    if (fills[0]) fills[0].style.width = "100%";
+    // initialise on load
     allNavLinks[0]?.classList.add("sn-active");
 
     lenis.on("scroll", tickNavProgress);
