@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOCK50</title>
+    <script type="module" crossorigin src="/DOC50/assets/main-3a63xktn.js"></script>
+    <link rel="stylesheet" crossorigin href="/DOC50/assets/main-Ceq_FuDh.css">
+  </head>
+  <body>
+
+    <!-- ─── Desktop Navbar ────────────────────────────────────────────────────── -->
+    <header id="siteHeader">
+      <a href="#intro" class="site-logo">DOCK50</a>
+      <nav class="site-nav">
+        <a href="#intro"     class="site-nav-link"><span class="sn-dot"></span><span class="sn-text">Home</span><span class="sn-big-dot"><span class="sn-big-dot-arrow">↗</span></span><span class="sn-bar-track"></span><span class="sn-bar-fill"></span></a>
+        <a href="#spotlight" class="site-nav-link"><span class="sn-dot"></span><span class="sn-text">Events</span><span class="sn-big-dot"><span class="sn-big-dot-arrow">↗</span></span><span class="sn-bar-track"></span><span class="sn-bar-fill"></span></a>
+        <a href="#location"  class="site-nav-link"><span class="sn-dot"></span><span class="sn-text">Location</span><span class="sn-big-dot"><span class="sn-big-dot-arrow">↗</span></span><span class="sn-bar-track"></span><span class="sn-bar-fill"></span></a>
+        <a href="#contact"   class="site-nav-link"><span class="sn-dot"></span><span class="sn-text">Contact</span><span class="sn-big-dot"><span class="sn-big-dot-arrow">↗</span></span><span class="sn-bar-track"></span><span class="sn-bar-fill"></span></a>
+      </nav>
+    </header>
+
+    <!-- ─── Fixer globaler Page-Counter oben links ─────────────────────────── -->
+    <div id="pageLabel">
+      <div id="pageLabelTrack">
+        <div class="page-label-item" data-section="intro">
+          <span class="pl-num">01</span>
+          <span class="pl-sep">/</span>
+          <span class="pl-name">Home</span>
+        </div>
+        <div class="page-label-item" data-section="spotlight">
+          <span class="pl-num">02</span>
+          <span class="pl-sep">/</span>
+          <span class="pl-name">Events</span>
+        </div>
+        <div class="page-label-item" data-section="location">
+          <span class="pl-num">03</span>
+          <span class="pl-sep">/</span>
+          <span class="pl-name">Location</span>
+        </div>
+        <div class="page-label-item" data-section="contact">
+          <span class="pl-num">04</span>
+          <span class="pl-sep">/</span>
+          <span class="pl-name">Anfragen</span>
+        </div>
+        <div class="page-label-item" data-section="footer">
+          <span class="pl-num">05</span>
+          <span class="pl-sep">/</span>
+          <span class="pl-name">Info</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Burger ──────────────────────────────────────────────────────────── -->
+    <div class="item">
+      <button class="menu-trigger" id="menu04">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- ─── Navbar ──────────────────────────────────────────────────────────── -->
+    <nav id="Navbar">
+      <div id="navWrapper">
+        <div class="nav-bg-label">DOCK50</div>
+        <div class="nav-meta">
+          <span>Flensburg</span>
+          <span>Germany</span>
+          <span>Est. 2025</span>
+        </div>
+        <div class="nav-items">
+          <div class="navH" id="navH1">
+            <a href="#intro" class="nav-link">
+              <span class="nav-item-num">01 —</span>
+              <span class="nav-item-text">HOME</span>
+              <span class="nav-item-arrow">↗</span>
+            </a>
+            <div class="nav-line"></div>
+            <div class="navImgWrapper" id="navImgWrapper1">
+              <video autoplay muted loop src="/sampleForBarclay4.mp4"></video>
+            </div>
+          </div>
+          <div class="navH" id="navH2">
+            <a href="#spotlight" class="nav-link">
+              <span class="nav-item-num">02 —</span>
+              <span class="nav-item-text">EVENTS</span>
+              <span class="nav-item-arrow">↗</span>
+            </a>
+            <div class="nav-line"></div>
+            <div class="navImgWrapper" id="navImgWrapper2">
+              <video autoplay muted loop src="/sampleForBarclay5.mp4"></video>
+            </div>
+          </div>
+          <div class="navH" id="navH3">
+            <a href="#location" class="nav-link">
+              <span class="nav-item-num">03 —</span>
+              <span class="nav-item-text">LOCATION</span>
+              <span class="nav-item-arrow">↗</span>
+            </a>
+            <div class="nav-line"></div>
+            <div class="navImgWrapper" id="navImgWrapper3">
+              <video autoplay muted loop src="/sampleForBarclay1.mp4"></video>
+            </div>
+          </div>
+          <div class="navH" id="navH4">
+            <a href="#contact" class="nav-link">
+              <span class="nav-item-num">04 —</span>
+              <span class="nav-item-text">KONTAKT</span>
+              <span class="nav-item-arrow">↗</span>
+            </a>
+            <div class="nav-line"></div>
+            <div class="navImgWrapper" id="navImgWrapper4">
+              <video autoplay muted loop src="/sampleForBarclay2.mp4"></video>
+            </div>
+          </div>
+        </div>
+        <div class="nav-time">
+          <span id="navClock">--:--:--</span>
+          <div class="nav-status-block">
+            <span class="nav-status-dot"></span>
+            <span class="nav-status-label">SYSTEM ONLINE</span>
+          </div>
+        </div>
+
+        <!-- Navbar Ticker (läuft am unteren Rand der Nav) -->
+        <div class="nav-ticker" aria-hidden="true">
+          <div class="nav-ticker-track">
+            <span>DOCK50</span><span class="nt-sep">·</span>
+            <span>Flensburg</span><span class="nt-sep">·</span>
+            <span>Event Location</span><span class="nt-sep">·</span>
+            <span>Schiffbrücke 50</span><span class="nt-sep">·</span>
+            <span>Live Productions</span><span class="nt-sep">·</span>
+            <span>info@dock50.de</span><span class="nt-sep">·</span>
+            <span>DOCK50</span><span class="nt-sep">·</span>
+            <span>Flensburg</span><span class="nt-sep">·</span>
+            <span>Event Location</span><span class="nt-sep">·</span>
+            <span>Schiffbrücke 50</span><span class="nt-sep">·</span>
+            <span>Live Productions</span><span class="nt-sep">·</span>
+            <span>info@dock50.de</span><span class="nt-sep">·</span>
+          </div>
+        </div>
+        <div class="nav-footer-info">
+          <span>info@dock50.de</span>
+          <span>+49 1767 1957983</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── Hero ────────────────────────────────────────────────────────────── -->
+    <section class="intro snap-section" id="intro">
+      <div class="section-1-img">
+        <img src="/DOC50/sig-bg.jpg" alt="" />
+      </div>
+
+      <div class="hero-bg-text" aria-hidden="true">50</div>
+
+      <div class="hero-title">
+        <span class="hero-doc-stroke">DOCK</span>
+        <div class="hero-title-rule"></div>
+        <span class="hero-50-fill">50</span>
+        <span class="hero-since">EST. 2025</span>
+      </div>
+
+      <!-- Rotating badge -->
+      <div class="hero-badge">
+        <svg viewBox="0 0 120 120" class="hero-badge-ring">
+          <defs>
+            <path id="badgeCircle" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"/>
+          </defs>
+          <text font-size="10.5" fill="rgba(255,255,255,0.45)" font-family="monospace" letter-spacing="3.2">
+            <textPath href="#badgeCircle">FLENSBURG · EVENT · LOCATION · 2025 ·&nbsp;</textPath>
+          </text>
+        </svg>
+        <span class="hero-badge-center">↓</span>
+      </div>
+
+      <!-- Scroll-Indikator -->
+      <div class="hero-scroll-line">
+        <div class="hero-scroll-line-inner"></div>
+      </div>
+
+      <div class="hero-sub">
+        <p>Event Location and Management</p>
+        <p>Live Productions</p>
+        <p>Since 2025</p>
+      </div>
+
+    </section>
+
+    <!-- ─── Spotlight filter (fixed, desktop only) ─────────────────────────── -->
+    <div id="spotFilter" aria-hidden="true">
+      <button class="sf-btn sf-active" data-city="all">Alle</button>
+      <button class="sf-btn" data-city="flensburg">Flensburg</button>
+      <button class="sf-btn" data-city="hamburg">Hamburg</button>
+      <button class="sf-btn" data-city="kiel">Kiel</button>
+    </div>
+
+    <!-- ─── Snap-click hint ───────────────────────────────────────────────────── -->
+    <div id="snapClickHint" aria-hidden="true">
+      <span class="sch-dot"></span>
+      <span class="sch-text">Details anzeigen</span>
+    </div>
+
+    <!-- ─── Events / Spotlight ──────────────────────────────────────────────── -->
+    <section class="spotlight snap-section" id="spotlight">
+      <div class="section-bg-text" aria-hidden="true">00</div>
+
+      <!-- Datum oben links (JS steuert opacity + y) -->
+      <div class="project-index"><h2></h2></div>
+
+      <!-- Verbindungslinie Bild ↔ Titel (JS positioniert) -->
+      <div class="project-connector">
+        <div class="project-connector-line"></div>
+        <div class="project-connector-dot"></div>
+      </div>
+
+      <div class="project-images">
+        <div class="project-img" data-index="0" data-city="flensburg"><img src="/DOC50/event-back2dock.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">01 — FLN · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="1" data-city="hamburg"><img src="/DOC50/event-jerome.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">02 — HH · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="2" data-city="flensburg"><img src="/DOC50/event-sixteenbeats.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">03 — FLN · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="3" data-city="kiel"><img src="/DOC50/event-strictlyoldschool.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">04 — KI · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="4" data-city="flensburg"><img src="/DOC50/event-kuult.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">05 — FLN · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="5" data-city="hamburg"><img src="/DOC50/event-back2dock.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">06 — HH · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="6" data-city="kiel"><img src="/DOC50/event-jerome.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">07 — KI · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="7" data-city="flensburg"><img src="/DOC50/event-sixteenbeats.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">08 — FLN · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="8" data-city="hamburg"><img src="/DOC50/event-strictlyoldschool.jpg" alt="" /></div>
+        <div class="project-divider"><span class="project-divider-num">09 — HH · 2026</span><span class="project-divider-mark">✦</span></div>
+        <div class="project-img" data-index="9" data-city="kiel"><img src="/DOC50/event-kuult.jpg" alt="" /></div>
+      </div>
+
+      <!-- Titel: sicherer Abstand zum Burger oben -->
+      <div class="project-names">
+        <div class="project-name-item" data-index="0" data-city="flensburg"><span class="proj-num">01</span><p>Back2Dock</p></div>
+        <div class="project-name-item" data-index="1" data-city="hamburg"><span class="proj-num">02</span><p>Jerome</p></div>
+        <div class="project-name-item" data-index="2" data-city="flensburg"><span class="proj-num">03</span><p>Sixteen Beats</p></div>
+        <div class="project-name-item" data-index="3" data-city="kiel"><span class="proj-num">04</span><p>Strictly Oldschool</p></div>
+        <div class="project-name-item" data-index="4" data-city="flensburg"><span class="proj-num">05</span><p>Kuult</p></div>
+        <div class="project-name-item" data-index="5" data-city="hamburg"><span class="proj-num">06</span><p>Live @ Dock50</p></div>
+        <div class="project-name-item" data-index="6" data-city="kiel"><span class="proj-num">07</span><p>Live @ Dock50</p></div>
+        <div class="project-name-item" data-index="7" data-city="flensburg"><span class="proj-num">08</span><p>Live @ Dock50</p></div>
+        <div class="project-name-item" data-index="8" data-city="hamburg"><span class="proj-num">09</span><p>Live @ Dock50</p></div>
+        <div class="project-name-item" data-index="9" data-city="kiel"><span class="proj-num">10</span><p>Live @ Dock50</p></div>
+      </div>
+    </section>
+
+    <!-- ─── Location ─────────────────────────────────────────────────────────── -->
+    <section class="location snap-section" id="location">
+      <div class="section-bg-text" aria-hidden="true">50</div>
+      <!-- Two-column row: floor plan + data panel -->
+      <div class="loc-main">
+      <!-- Left: Interactive floor plan -->
+      <div class="loc-left">
+        <p class="loc-eyebrow">SCHIFFBRÜCKE 50 · 24939 FLENSBURG</p>
+        <div class="loc-svg-container">
+          <svg class="loc-svg" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <pattern id="ldg" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="0"  cy="0"  r="0.5" fill="white" fill-opacity="0.05"/>
+                <circle cx="20" cy="0"  r="0.5" fill="white" fill-opacity="0.05"/>
+                <circle cx="0"  cy="20" r="0.5" fill="white" fill-opacity="0.05"/>
+                <circle cx="20" cy="20" r="0.5" fill="white" fill-opacity="0.05"/>
+              </pattern>
+              <!-- Irregular building polygon: diagonal top-right corner, right-side step, stage protrusion -->
+              <clipPath id="bld">
+                <polygon points="40,40 420,40 510,120 510,275 420,275 420,385 310,385 310,445 90,445 90,385 40,385"/>
+              </clipPath>
+            </defs>
+
+            <!-- dot-grid background -->
+            <rect width="580" height="460" fill="url(#ldg)"/>
+
+            <!-- ── Rooms (clipped to building polygon) ── -->
+            <g clip-path="url(#bld)">
+
+              <!-- FOYER & EINGANG (full-width top, diagonal clips top-right corner) -->
+              <g class="loc-room-group" data-room="foyer">
+                <rect class="loc-room-fill" x="40" y="40" width="480" height="70"/>
+                <text class="loc-room-label" x="225" y="75" text-anchor="middle" dominant-baseline="middle">FOYER &amp; EINGANG</text>
+              </g>
+
+              <!-- BAR & LOUNGE -->
+              <g class="loc-room-group" data-room="bar">
+                <rect class="loc-room-fill" x="50" y="120" width="110" height="120"/>
+                <text class="loc-room-label" x="105" y="173" text-anchor="middle" dominant-baseline="middle">BAR</text>
+                <text class="loc-room-sub"  x="105" y="187" text-anchor="middle" dominant-baseline="middle">LOUNGE</text>
+              </g>
+
+              <!-- GARDEROBE -->
+              <g class="loc-room-group" data-room="garderobe">
+                <rect class="loc-room-fill" x="50" y="250" width="110" height="125"/>
+                <text class="loc-room-label" x="105" y="312" text-anchor="middle" dominant-baseline="middle">GARDEROBE</text>
+              </g>
+
+              <!-- HAUPTHALLE -->
+              <g class="loc-room-group" data-room="haupthalle">
+                <rect class="loc-room-fill" x="170" y="120" width="240" height="195"/>
+                <text class="loc-room-label" x="290" y="208" text-anchor="middle" dominant-baseline="middle">HAUPTHALLE</text>
+                <text class="loc-room-sub"  x="290" y="222" text-anchor="middle" dominant-baseline="middle">580 M² · 6,2 M</text>
+              </g>
+
+              <!-- VIP LOUNGE -->
+              <g class="loc-room-group" data-room="vip">
+                <rect class="loc-room-fill" x="170" y="325" width="240" height="50"/>
+                <text class="loc-room-label" x="290" y="350" text-anchor="middle" dominant-baseline="middle">VIP LOUNGE</text>
+              </g>
+
+              <!-- BACKSTAGE (right section, below diagonal) -->
+              <g class="loc-room-group" data-room="backstage">
+                <rect class="loc-room-fill" x="422" y="120" width="78" height="100"/>
+                <text class="loc-room-label" x="461" y="170" text-anchor="middle" dominant-baseline="middle">BACKSTAGE</text>
+              </g>
+
+              <!-- TECHNIK -->
+              <g class="loc-room-group" data-room="technik">
+                <rect class="loc-room-fill" x="422" y="230" width="78" height="35"/>
+                <text class="loc-room-label" x="461" y="247" text-anchor="middle" dominant-baseline="middle">TECHNIK</text>
+              </g>
+
+              <!-- BÜHNE (stage protrusion, bottom) -->
+              <g class="loc-room-group" data-room="buehne">
+                <rect class="loc-room-fill" x="100" y="393" width="200" height="44"/>
+                <text class="loc-room-label" x="200" y="415" text-anchor="middle" dominant-baseline="middle">BÜHNE</text>
+              </g>
+
+            </g><!-- /clip group -->
+
+            <!-- Building outer outline (drawn over rooms for sharp wall edges) -->
+            <polygon class="loc-building-outline"
+              points="40,40 420,40 510,120 510,275 420,275 420,385 310,385 310,445 90,445 90,385 40,385"/>
+
+            <!-- Inner outline (wall-thickness effect) -->
+            <polygon class="loc-building-inner"
+              points="48,48 416,48 503,128 503,269 416,269 416,379 304,379 304,439 98,439 98,379 48,379"/>
+
+            <!-- ── Dimension annotations ── -->
+            <!-- Top: main body width 40→420 -->
+            <line class="loc-dim"      x1="40"  y1="22"  x2="420" y2="22"/>
+            <line class="loc-dim-ext"  x1="40"  y1="24"  x2="40"  y2="38"/>
+            <line class="loc-dim-ext"  x1="420" y1="24"  x2="420" y2="38"/>
+            <line class="loc-dim-tick" x1="36"  y1="26"  x2="44"  y2="18"/>
+            <line class="loc-dim-tick" x1="416" y1="26"  x2="424" y2="18"/>
+            <text class="loc-dim-text" x="230" y="18" text-anchor="middle">38 M</text>
+
+            <!-- Left: total height 40→385 -->
+            <line class="loc-dim"      x1="18"  y1="40"  x2="18"  y2="385"/>
+            <line class="loc-dim-ext"  x1="20"  y1="40"  x2="38"  y2="40"/>
+            <line class="loc-dim-ext"  x1="20"  y1="385" x2="38"  y2="385"/>
+            <line class="loc-dim-tick" x1="14"  y1="44"  x2="22"  y2="36"/>
+            <line class="loc-dim-tick" x1="14"  y1="389" x2="22"  y2="381"/>
+            <text class="loc-dim-text" x="8" y="212" text-anchor="middle" transform="rotate(-90,8,212)">34 M</text>
+
+            <!-- Right: right-section height 120→275 -->
+            <line class="loc-dim"      x1="537" y1="120" x2="537" y2="275"/>
+            <line class="loc-dim-ext"  x1="535" y1="120" x2="512" y2="120"/>
+            <line class="loc-dim-ext"  x1="535" y1="275" x2="422" y2="275"/>
+            <line class="loc-dim-tick" x1="533" y1="124" x2="541" y2="116"/>
+            <line class="loc-dim-tick" x1="533" y1="279" x2="541" y2="271"/>
+            <text class="loc-dim-text" x="550" y="200" text-anchor="middle" transform="rotate(90,550,200)">15 M</text>
+
+            <!-- Bottom: stage width 90→310 -->
+            <line class="loc-dim"      x1="90"  y1="456" x2="310" y2="456"/>
+            <line class="loc-dim-ext"  x1="90"  y1="454" x2="90"  y2="447"/>
+            <line class="loc-dim-ext"  x1="310" y1="454" x2="310" y2="447"/>
+            <line class="loc-dim-tick" x1="86"  y1="452" x2="94"  y2="460"/>
+            <line class="loc-dim-tick" x1="306" y1="452" x2="314" y2="460"/>
+            <text class="loc-dim-text" x="200" y="453" text-anchor="middle">22 M</text>
+
+            <!-- ── Cross marks at structural intersections ── -->
+            <path class="loc-cross" d="M166,120 L174,120 M170,116 L170,124"/>
+            <path class="loc-cross" d="M406,120 L414,120 M410,116 L410,124"/>
+            <path class="loc-cross" d="M166,325 L174,325 M170,321 L170,329"/>
+            <path class="loc-cross" d="M406,325 L414,325 M410,321 L410,329"/>
+            <path class="loc-cross" d="M416,271 L424,271 M420,267 L420,279"/>
+            <path class="loc-cross" d="M306,381 L314,381 M310,377 L310,389"/>
+            <path class="loc-cross" d="M86,381  L94,381  M90,377  L90,389"/>
+
+            <!-- Scale bar -->
+            <line x1="45" y1="452" x2="95" y2="452" stroke="white" stroke-opacity="0.12" stroke-width="0.7"/>
+            <line x1="45" y1="449" x2="45" y2="455" stroke="white" stroke-opacity="0.12" stroke-width="0.7"/>
+            <line x1="95" y1="449" x2="95" y2="455" stroke="white" stroke-opacity="0.12" stroke-width="0.7"/>
+            <text x="70" y="449" text-anchor="middle" fill="white" fill-opacity="0.12" font-family="monospace" font-size="6">5 M</text>
+
+            <!-- North -->
+            <text x="575" y="455" text-anchor="end" fill="white" fill-opacity="0.14" font-family="monospace" font-size="7" letter-spacing="1">N ▲</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Data panel -->
+      <div class="loc-right">
+        <p class="loc-data-eyebrow">GRUNDRISS</p>
+        <h2 class="loc-room-name" id="locRoomName">DOCK50</h2>
+        <div class="loc-stats">
+          <div class="loc-stat">
+            <span class="loc-stat-key">Fläche</span>
+            <div class="loc-stat-num-row">
+              <span class="loc-stat-val" id="locStatArea">—</span>
+              <span class="loc-stat-unit">m²</span>
+            </div>
+          </div>
+          <div class="loc-stat">
+            <span class="loc-stat-key">Deckenhöhe</span>
+            <div class="loc-stat-num-row">
+              <span class="loc-stat-val" id="locStatHeight">—</span>
+              <span class="loc-stat-unit">m</span>
+            </div>
+          </div>
+          <div class="loc-stat">
+            <span class="loc-stat-key">Kapazität</span>
+            <div class="loc-stat-num-row">
+              <span class="loc-stat-val" id="locStatCap">—</span>
+              <span class="loc-stat-unit" id="locCapUnit"></span>
+            </div>
+          </div>
+        </div>
+        <p class="loc-hint">← Raum hovern</p>
+      </div>
+      </div><!-- /.loc-main -->
+
+      <div class="section-badge">
+        <svg viewBox="0 0 120 120" class="badge-ring">
+          <defs>
+            <path id="badgeCircleLoc" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"/>
+          </defs>
+          <text font-size="10.5" fill="rgba(255,255,255,0.45)" font-family="monospace" letter-spacing="3.2">
+            <textPath href="#badgeCircleLoc">SCHIFFBRÜCKE · 50 · FLN ·&nbsp;</textPath>
+          </text>
+        </svg>
+        <span class="badge-center">+</span>
+      </div>
+    </section>
+
+    <!-- ─── Spacer ──────────────────────────────────────────────────────────────── -->
+    <div class="section-spacer"></div>
+
+    <!-- ─── Rooms Section ────────────────────────────────────────────────────────── -->
+    <section class="rooms-section" id="rooms">
+
+      <!-- Left: pinned panel — cards crossfade per active title -->
+      <div class="rs-left">
+        <div class="rs-cards">
+
+          <div class="rs-card" data-room="1">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-1.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Konzertsaal</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Großer Hauptsaal für Konzerte und Veranstaltungen jeder Größe</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Profi PA-System · LED-Licht · Bühne · 400 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="2">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-2.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Performance-Bühne</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Professionelle Auftrittsfläche mit vollständiger FOH-Position</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Monitoring · Lichtanlage · Backline · 80 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="3">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-3.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">VIP Lounge</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Exklusiver Rückzugsbereich mit Panoramablick über das Dock</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Private Bar · Loungemöbel · Separater Eingang · 60 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="4">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-4.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Bar &amp; Lounge</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Gastronomiebereich mit integriertem DJ-Booth und Loungecharakter</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Cocktailbar · DJ-Booth · Soundsystem · 70 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="5">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-5.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Backstage</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Geschützter Künstlerbereich direkt hinter der Hauptbühne</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Garderobe · Catering · Ruhebereich · 20 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="6">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-6.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Foyer</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Weitläufiger Empfangs- und Eingangsbereich mit Ausstellungsfläche</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Garderobe · Infopoint · Ausstellung · 150 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="7">
+            <div class="rs-card-img"><img src="/DOC50/doc50-concert-7.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Proberaum</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Schallisolierter Übungsraum für Bands und Solo-Künstler</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Schlagzeug · Verstärker · Aufnahmetechnik · 15 PAX</span></div>
+            </div>
+          </div>
+
+          <div class="rs-card" data-room="8">
+            <div class="rs-card-img"><img src="/DOC50/loc-skylounge.jpg" loading="lazy" alt="" /></div>
+            <div class="rs-card-meta">
+              <div class="rs-meta-row"><span class="rs-meta-label">Typ</span><span class="rs-meta-val">Skylounge</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Beschreibung</span><span class="rs-meta-val">Offene Dachterrasse mit Blick auf den Flensburger Hafen</span></div>
+              <div class="rs-meta-row"><span class="rs-meta-label">Besonderheiten</span><span class="rs-meta-val">Outdoor-Bar · Heizstrahler · Eventfläche · 250 PAX</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Center indicator — marks the highlight zone -->
+      <div class="rs-indicator">DOCK50</div>
+
+      <!-- Right: translated by GSAP — gradient overlay clips top/bottom -->
+      <div class="rs-right-wrap">
+        <div class="rs-right">
+          <h2 class="rs-title" data-room="1">Haupthalle</h2>
+          <h2 class="rs-title" data-room="2">Bühne</h2>
+          <h2 class="rs-title" data-room="3">VIP Lounge</h2>
+          <h2 class="rs-title" data-room="4">Bar &amp; Lounge</h2>
+          <h2 class="rs-title" data-room="5">Backstage</h2>
+          <h2 class="rs-title" data-room="6">Foyer</h2>
+          <h2 class="rs-title" data-room="7">Proberaum</h2>
+          <h2 class="rs-title" data-room="8">Skylounge</h2>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─── Contact ────────────────────────────────────────────────────────────── -->
+    <section class="contact snap-section" id="contact">
+      <div class="section-bg-text" aria-hidden="true">DO</div>
+      <p class="ct-eyebrow">DOCK50 · KONTAKT</p>
+      <div class="ct-tabs">
+
+        <!-- KONTAKT -->
+        <div class="ct-tab ct-active" data-tab="kontakt">
+          <div class="ct-tab-head">
+            <h2 class="ct-tab-title">KONTAKT</h2>
+            <div class="ct-dot"></div>
+          </div>
+          <div class="ct-tab-body">
+            <form class="ct-form" data-subject="Kontaktanfrage DOCK50">
+              <div class="ct-field-row">
+                <div class="ct-field">
+                  <label class="ct-label">Name *</label>
+                  <input class="ct-input" type="text" name="Name" required/>
+                </div>
+                <div class="ct-field">
+                  <label class="ct-label">E-Mail *</label>
+                  <input class="ct-input" type="email" name="E-Mail" required/>
+                </div>
+              </div>
+              <div class="ct-field">
+                <label class="ct-label">Nachricht *</label>
+                <textarea class="ct-textarea ct-textarea--tall" name="Nachricht" required></textarea>
+              </div>
+              <button class="ct-submit" type="submit">Nachricht senden ↗</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="ct-divider" aria-hidden="true"></div>
+
+        <!-- KARRIERE -->
+        <div class="ct-tab" data-tab="karriere">
+          <div class="ct-tab-head">
+            <h2 class="ct-tab-title">KARRIERE</h2>
+            <div class="ct-dot"></div>
+          </div>
+          <div class="ct-tab-body">
+            <p class="ct-coming-soon">COMING SOON</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-badge">
+        <svg viewBox="0 0 120 120" class="badge-ring">
+          <defs>
+            <path id="badgeCircleCt" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"/>
+          </defs>
+          <text font-size="10.5" fill="rgba(255,255,255,0.45)" font-family="monospace" letter-spacing="3.2">
+            <textPath href="#badgeCircleCt">KONTAKT · BOOKING · DOCK50 ·&nbsp;</textPath>
+          </text>
+        </svg>
+        <span class="badge-center">→</span>
+      </div>
+    </section>
+
+    <!-- ─── Footer ───────────────────────────────────────────────────────────── -->
+    <footer class="site-footer snap-section" id="footer">
+      <div class="footer-bg-text">DOCK50</div>
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <p class="footer-logo">DOCK50</p>
+          <p class="footer-tagline">Event Location &amp; Management<br/>Live Productions · Flensburg</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Navigation</p>
+          <nav class="footer-nav">
+            <a href="#intro"     class="nav-link">Home</a>
+            <a href="#spotlight" class="nav-link">Events</a>
+            <a href="#location"  class="nav-link">Location</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Kontakt</p>
+          <p class="footer-detail">Max Mustermann</p>
+          <p class="footer-detail">Schiffbrücke 50</p>
+          <p class="footer-detail">24939 Flensburg</p>
+          <p class="footer-detail">info@doc50.de</p>
+          <p class="footer-detail">+49 1767 1957983</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Impressum</p>
+          <p class="footer-detail">Angaben gemäß §5 TMG</p>
+          <p class="footer-detail">Max Mustermann</p>
+          <p class="footer-detail">Schiffbrücke 50, 24939 Flensburg</p>
+          <div class="footer-divider"></div>
+          <p class="foooter-detail">Verantwortlich i.S.d. §55 Abs. 2 RStV:<br/>Max Mustermann</p>
+        </div>
+      </div>
+
+      <!-- Marquee Ticker -->
+      <div class="footer-ticker" aria-hidden="true">
+        <div class="footer-ticker-track">
+          <span>DOCK50</span><span class="ft-sep">✦</span>
+          <span>Flensburg</span><span class="ft-sep">✦</span>
+          <span>Event Location</span><span class="ft-sep">✦</span>
+          <span>Live Productions</span><span class="ft-sep">✦</span>
+          <span>Schiffbrücke 50</span><span class="ft-sep">✦</span>
+          <span>Est. 2025</span><span class="ft-sep">✦</span>
+          <span>DOCK50</span><span class="ft-sep">✦</span>
+          <span>Flensburg</span><span class="ft-sep">✦</span>
+          <span>Event Location</span><span class="ft-sep">✦</span>
+          <span>Live Productions</span><span class="ft-sep">✦</span>
+          <span>Schiffbrücke 50</span><span class="ft-sep">✦</span>
+          <span>Est. 2025</span><span class="ft-sep">✦</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 DOCK50 Eventlocation · Alle Rechte vorbehalten</p>
+        <div class="footer-bottom-social">
+          <a href="#" class="footer-social-link">Instagram</a>
+          <span class="footer-social-sep">·</span>
+          <a href="#" class="footer-social-link">Facebook</a>
+          <span class="footer-social-sep">·</span>
+          <a href="mailto:info@doc50.de" class="footer-social-link">E-Mail</a>
+        </div>
+        <p>Datenschutz · Impressum</p>
+      </div>
+    </footer>
+
+    <!-- ─── Spotlight Detail Panel ─────────────────────────────────────────── -->
+    <div id="spotDetailOuter" style="display:none;">
+      <div class="sd-overlay"></div>
+      <div id="spotDetail">
+        <div class="sd-info">
+          <button class="sd-close">✕ SCHLIESSEN</button>
+          <div class="sd-inner">
+            <span class="sd-num"></span>
+            <h2 class="sd-name"></h2>
+            <p class="sd-artist"></p>
+            <div class="sd-divider"></div>
+            <p class="sd-date"></p>
+            <a href="/anfrage.html" class="sd-cta">
+              <span class="sd-cta-text">Tickets anfragen</span>
+              <span class="sd-cta-arrow">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="sd-img-wrap">
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

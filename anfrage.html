@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anfrage — DOC50</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
+
+      :root {
+        --font-header: "Special Gothic Expanded One", sans-serif;
+        --font-mono:   "Geist Mono", monospace;
+        --bg:          #141414;
+        --border:      rgba(255,255,255,0.10);
+        --border-hi:   rgba(255,255,255,0.32);
+        --text:        rgba(255,255,255,0.90);
+        --text-mid:    rgba(255,255,255,0.52);
+        --text-dim:    rgba(255,255,255,0.22);
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html { overflow-x: hidden; }
+
+      body {
+        font-family: "Google Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100svh;
+      }
+
+      /* Grain */
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        background-size: 300px;
+        pointer-events: none;
+        z-index: 0;
+        mix-blend-mode: overlay;
+      }
+
+      /* BG-Schriftzug */
+
+      .bg-word {
+        position: fixed;
+        bottom: -0.1em;
+        left: -0.04em;
+        font-family: var(--font-header);
+        font-size: clamp(5rem, 16vw, 16rem);
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+        white-space: nowrap;
+        pointer-events: none;
+        line-height: 1;
+        z-index: 0;
+        user-select: none;
+      }
+
+      /* ── Top Bar ── */
+
+      .topbar {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 3.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(20,20,20,0.90);
+        backdrop-filter: blur(14px);
+        z-index: 50;
+      }
+
+      .topbar-logo {
+        font-family: var(--font-header);
+        font-size: 0.9rem;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.65);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+
+      .topbar-back {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--text-dim);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color 0.25s;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .topbar-back:hover { color: var(--text-mid); text-decoration: none; }
+
+      .topbar-step {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        color: var(--text-dim);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      /* ── Main Wrapper ── */
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 5.5rem 2rem 5rem;
+      }
+
+      /* ── Seiten-Kopf ── */
+
+      .page-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        color: var(--text-dim);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .page-eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 20px; height: 1px;
+        background: rgba(255,255,255,0.22);
+      }
+
+      .page-title {
+        font-family: var(--font-header);
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(255,255,255,0.85);
+        letter-spacing: -0.03em;
+        line-height: 0.92;
+        margin-bottom: 0.5rem;
+      }
+
+      .page-sub {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-mid);
+        letter-spacing: 0.06em;
+        margin-bottom: 3rem;
+        margin-top: 0.6rem;
+      }
+
+      /* ── Trennlinie ── */
+
+      .rule {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, transparent 80%);
+        margin-bottom: 2.5rem;
+      }
+
+      /* ── Formular-Sektion ── */
+
+      .fsec {
+        margin-bottom: 2.4rem;
+      }
+
+      .fsec-label {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        color: var(--text-dim);
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        margin-bottom: 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .fsec-label-num {
+        color: rgba(255,255,255,0.12);
+        font-size: 0.52rem;
+      }
+
+      /* Zweispaltig */
+
+      .frow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 2rem;
+      }
+
+      /* ── Feld ── */
+
+      .fld {
+        margin-bottom: 1.6rem;
+        position: relative;
+      }
+
+      .fld label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.54rem;
+        color: var(--text-dim);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 0.45rem;
+      }
+
+      /* Erforderlich-Markierung */
+
+      .fld label.req::after {
+        content: " *";
+        color: rgba(255,255,255,0.22);
+      }
+
+      .fld input,
+      .fld select,
+      .fld textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--border);
+        padding: 0.6rem 0;
+        font-family: var(--font-mono);
+        font-size: 0.80rem;
+        color: var(--text);
+        letter-spacing: 0.04em;
+        outline: none;
+        transition: border-color 0.25s;
+        caret-color: rgba(255,255,255,0.6);
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0;
+      }
+
+      .fld input::placeholder,
+      .fld textarea::placeholder {
+        color: rgba(255,255,255,0.14);
+      }
+
+      .fld input:focus,
+      .fld select:focus,
+      .fld textarea:focus {
+        border-bottom-color: var(--border-hi);
+      }
+
+      .fld input.err,
+      .fld select.err {
+        border-bottom-color: rgba(255,90,90,0.55);
+      }
+
+      .fld select {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,255,255,0.28)' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0 center;
+        padding-right: 1.2rem;
+        color: var(--text);
+      }
+
+      .fld select option {
+        background: #1c1c1c;
+        color: #fff;
+      }
+
+      /* Leere Placeholder-Option */
+
+      .fld select option[value=""] {
+        color: rgba(255,255,255,0.28);
+      }
+
+      .fld textarea {
+        resize: vertical;
+        min-height: 100px;
+        line-height: 1.65;
+      }
+
+      /* ── Actions ── */
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2.8rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: rgba(255,255,255,0.95);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.8rem;
+        border: 1px solid rgba(255,255,255,0.22);
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+        white-space: nowrap;
+      }
+
+      .btn-primary:hover {
+        background: rgba(255,255,255,0.07);
+        border-color: rgba(255,255,255,0.42);
+      }
+
+      .btn-secondary {
+        font-family: var(--font-mono);
+        font-size: 0.64rem;
+        color: var(--text-dim);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.8rem 1.2rem;
+        border: 1px solid rgba(255,255,255,0.07);
+        background: transparent;
+        text-decoration: none;
+        transition: color 0.25s, border-color 0.25s;
+        white-space: nowrap;
+      }
+
+      .btn-secondary:hover {
+        color: var(--text-mid);
+        border-color: rgba(255,255,255,0.15);
+        text-decoration: none;
+      }
+
+      .actions-note {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        color: rgba(255,255,255,0.14);
+        letter-spacing: 0.06em;
+        line-height: 1.7;
+        margin-left: auto;
+        text-align: right;
+      }
+
+      /* ── Erfolg ── */
+
+      .success {
+        display: none;
+        text-align: center;
+        padding: 4rem 0 3rem;
+      }
+
+      .success.show { display: block; }
+
+      .success-mark {
+        font-family: var(--font-header);
+        font-size: 3rem;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+        margin-bottom: 1.5rem;
+      }
+
+      .success p {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-mid);
+        line-height: 1.8;
+        letter-spacing: 0.06em;
+      }
+
+      .success a {
+        display: inline-block;
+        margin-top: 2rem;
+        font-family: var(--font-mono);
+        font-size: 0.64rem;
+        color: var(--text-dim);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        padding-bottom: 0.2rem;
+        transition: color 0.25s;
+      }
+
+      .success a:hover { color: var(--text-mid); text-decoration: none; }
+
+      /* ── Footer-Ticker ── */
+
+      .ticker {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 4rem;
+      }
+
+      .ticker-track {
+        display: flex;
+        gap: 2rem;
+        white-space: nowrap;
+        animation: scroll 22s linear infinite;
+        width: max-content;
+      }
+
+      .ticker-track span {
+        font-family: var(--font-mono);
+        font-size: 0.56rem;
+        color: rgba(255,255,255,0.16);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        flex-shrink: 0;
+      }
+
+      .ticker-track .sep { color: rgba(255,255,255,0.08); }
+
+      @keyframes scroll {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+
+      /* ── Cursor ── */
+
+      #cur {
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        position: fixed; top: 0; left: 0;
+        z-index: 9999;
+        background: white;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        transform: translate(-50%,-50%);
+        transition: transform 0.12s ease, scale 0.2s ease;
+      }
+
+      @media (max-width: 600px) {
+        .frow { grid-template-columns: 1fr; gap: 0; }
+        .actions-note { margin-left: 0; text-align: left; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="bg-word">DOC50</div>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <a href="/" class="topbar-logo">DOC50</a>
+      <span class="topbar-step">Anfrage</span>
+      <a href="/#location" class="topbar-back">← Zurück</a>
+    </header>
+
+    <!-- Formular -->
+    <main class="wrap">
+
+      <p class="page-eyebrow">Venue-Buchung</p>
+      <h1 class="page-title">ANFRAGE<br/>SENDEN</h1>
+      <p class="page-sub">Schiffbrücke 50 · 24939 Flensburg · bis 850 Gäste</p>
+      <div class="rule"></div>
+
+      <div id="formBody">
+
+        <!-- 1 · Kontakt -->
+        <div class="fsec">
+          <p class="fsec-label"><span class="fsec-label-num">01 —</span> Ihre Kontaktdaten</p>
+          <div class="frow">
+            <div class="fld">
+              <label for="name" class="req">Name</label>
+              <input id="name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
+            </div>
+            <div class="fld">
+              <label for="org">Organisation</label>
+              <input id="org" type="text" placeholder="Firma / Verband (optional)" />
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fld">
+              <label for="email" class="req">E-Mail</label>
+              <input id="email" type="email" placeholder="ihre@email.de" autocomplete="email" />
+            </div>
+            <div class="fld">
+              <label for="phone">Telefon</label>
+              <input id="phone" type="tel" placeholder="+49 …" autocomplete="tel" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 · Veranstaltung -->
+        <div class="fsec">
+          <p class="fsec-label"><span class="fsec-label-num">02 —</span> Ihre Veranstaltung</p>
+          <div class="frow">
+            <div class="fld">
+              <label for="type" class="req">Art der Veranstaltung</label>
+              <select id="type">
+                <option value="" disabled selected>Bitte wählen …</option>
+                <option>Konzert / Live-Musik</option>
+                <option>Firmenveranstaltung</option>
+                <option>Private Feier</option>
+                <option>Festival / Mehrtages-Event</option>
+                <option>Messe / Ausstellung</option>
+                <option>Theater / Bühne</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="guests" class="req">Gästeanzahl</label>
+              <select id="guests">
+                <option value="" disabled selected>Bitte wählen …</option>
+                <option>bis 100</option>
+                <option>100 – 250</option>
+                <option>250 – 500</option>
+                <option>500 – 850</option>
+                <option>Anfrage: über 850</option>
+              </select>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fld">
+              <label for="from">Datum von</label>
+              <input id="from" type="date" />
+            </div>
+            <div class="fld">
+              <label for="to">Datum bis <span style="opacity:0.4">(optional)</span></label>
+              <input id="to" type="date" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 · Nachricht -->
+        <div class="fsec">
+          <p class="fsec-label"><span class="fsec-label-num">03 —</span> Ihre Nachricht</p>
+          <div class="fld">
+            <label for="msg">Beschreibung des Events</label>
+            <textarea id="msg" placeholder="Kurze Beschreibung, besondere Anforderungen, technischer Bedarf …"></textarea>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn-primary" id="submitBtn">Anfrage senden ↗</button>
+          <a href="#" class="btn-secondary" id="mailLink">Per E-Mail öffnen ↗</a>
+          <p class="actions-note">* Pflichtfelder<br/>Antwort innerhalb 48 h</p>
+        </div>
+
+      </div><!-- /formBody -->
+
+      <!-- Erfolg -->
+      <div class="success" id="successMsg">
+        <div class="success-mark">✦</div>
+        <p>Ihre Anfrage wurde gesendet.<br/>Wir melden uns innerhalb von 48 Stunden.</p>
+        <a href="/#location">← Zurück zur Website</a>
+      </div>
+
+    </main>
+
+    <!-- Ticker -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>DOC50</span><span class="sep">✦</span>
+        <span>Flensburg</span><span class="sep">✦</span>
+        <span>Schiffbrücke 50</span><span class="sep">✦</span>
+        <span>Event Location</span><span class="sep">✦</span>
+        <span>Live Productions</span><span class="sep">✦</span>
+        <span>Est. 2025</span><span class="sep">✦</span>
+        <span>DOC50</span><span class="sep">✦</span>
+        <span>Flensburg</span><span class="sep">✦</span>
+        <span>Schiffbrücke 50</span><span class="sep">✦</span>
+        <span>Event Location</span><span class="sep">✦</span>
+        <span>Live Productions</span><span class="sep">✦</span>
+        <span>Est. 2025</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <div id="cur"></div>
+
+    <script>
+      // ── Cursor ────────────────────────────────────────────────────────────
+      const cur = document.getElementById("cur");
+      window.addEventListener("mousemove", (e) => {
+        cur.style.left = e.clientX + "px";
+        cur.style.top  = e.clientY + "px";
+      });
+      document.querySelectorAll("a, button, input, select, textarea").forEach((el) => {
+        el.addEventListener("mouseenter", () => cur.style.scale = "3.5");
+        el.addEventListener("mouseleave", () => cur.style.scale = "1");
+      });
+
+      // ── Mailto bauen ──────────────────────────────────────────────────────
+      function buildMailto() {
+        const v = (id) => (document.getElementById(id).value || "").trim();
+        const subject = encodeURIComponent("Venue-Anfrage – DOC50");
+        const body = encodeURIComponent(
+`DOC50 Venue-Anfrage
+────────────────────────────
+Name:         ${v("name") || "—"}
+Organisation: ${v("org")  || "—"}
+E-Mail:       ${v("email")|| "—"}
+Telefon:      ${v("phone")|| "—"}
+
+Veranstaltung: ${document.getElementById("type").value   || "—"}
+Gästeanzahl:   ${document.getElementById("guests").value || "—"}
+Datum von:     ${v("from") || "—"}
+Datum bis:     ${v("to")   || "—"}
+
+Nachricht:
+${v("msg") || "—"}
+────────────────────────────`
+        );
+        return `mailto:info@doc50.de?subject=${subject}&body=${body}`;
+      }
+
+      // Mailto-Link aktuell halten
+      const mailLink = document.getElementById("mailLink");
+      document.querySelectorAll("input, select, textarea").forEach((el) => {
+        el.addEventListener("input",  () => mailLink.href = buildMailto());
+        el.addEventListener("change", () => mailLink.href = buildMailto());
+      });
+      mailLink.href = buildMailto();
+
+      // ── Submit ────────────────────────────────────────────────────────────
+      document.getElementById("submitBtn").addEventListener("click", () => {
+        const name  = document.getElementById("name");
+        const email = document.getElementById("email");
+        const type  = document.getElementById("type");
+        const gsts  = document.getElementById("guests");
+        let ok = true;
+
+        [name, email, type, gsts].forEach((f) => {
+          if (!f.value.trim()) {
+            f.classList.add("err");
+            ok = false;
+            setTimeout(() => f.classList.remove("err"), 2500);
+          }
+        });
+
+        if (!ok) return;
+
+        window.location.href = buildMailto();
+
+        setTimeout(() => {
+          document.getElementById("formBody").style.display = "none";
+          document.getElementById("successMsg").classList.add("show");
+        }, 800);
+      });
+    </script>
+  </body>
+</html>
